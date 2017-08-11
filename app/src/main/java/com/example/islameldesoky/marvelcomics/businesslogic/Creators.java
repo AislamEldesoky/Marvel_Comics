@@ -20,6 +20,10 @@ public class Creators implements Serializable {
         return items;
     }
 
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
     public static class Item implements Serializable {
 
         @SerializedName("name")
@@ -36,6 +40,14 @@ public class Creators implements Serializable {
 
         public String getRole() {
             return role;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setRole(String role) {
+            this.role = role;
         }
     }
 }

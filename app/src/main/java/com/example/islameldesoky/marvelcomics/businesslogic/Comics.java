@@ -74,4 +74,36 @@ public class Comics implements Serializable {
     public Characters getCharacters() {
         return characters;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDates(List<Date> dates) {
+        this.dates = dates;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public void setCreators(Creators creators) {
+        this.creators = creators;
+    }
+
+    public void setCharacters(Characters characters) {
+        this.characters = characters;
+    }
+
+    public void setPrices(List<Price> prices) {
+        this.prices = prices;
+    }
 }

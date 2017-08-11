@@ -43,7 +43,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Title"
+                            android:text="@string/title"
                             android:textAllCaps="true"
                             android:textColor="@android:color/black"
                             android:textSize="15sp" />
@@ -76,7 +76,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Price"
+                            android:text="@string/price"
                             android:textAllCaps="true"
                             android:textColor="@android:color/black"
                             android:textSize="15sp" />
@@ -109,7 +109,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Date"
+                            android:text="@string/date"
                             android:textAllCaps="true"
                             android:textColor="@android:color/black"
                             android:textSize="15sp" />
@@ -144,7 +144,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Description"
+                android:text="@string/description"
                 android:textAllCaps="true"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
@@ -179,7 +179,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="Characters"
+                    android:text="@string/characters"
                     android:textAllCaps="true"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -207,7 +207,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="Creators"
+                    android:text="@string/creators"
                     android:textAllCaps="true"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />

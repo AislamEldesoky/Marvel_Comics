@@ -26,4 +26,12 @@ public class Date implements Serializable {
     public String getDate() {
         return date;
     }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

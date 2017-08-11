@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "845371778289",
+    "firebase_url": "https://my-awesome-project-8bf0e.firebaseio.com",
+    "project_id": "my-awesome-project-8bf0e",
+    "storage_bucket": "my-awesome-project-8bf0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845371778289:android:ba3738e7f22db1e6",
+        "android_client_info": {
+          "package_name": "com.example.islameldesoky.marvelcomics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845371778289-othc8tt8tepmpk2rio6r4qdve2oslv6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApUXdUzBlgHxSJNRm-GcK-rc1FWHJ5_w0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

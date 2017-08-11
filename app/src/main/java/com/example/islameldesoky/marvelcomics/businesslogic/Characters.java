@@ -20,6 +20,10 @@ public class Characters implements Serializable {
         return items;
     }
 
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
     public static class Item implements Serializable{
 
         @SerializedName("name")
@@ -28,6 +32,10 @@ public class Characters implements Serializable {
 
         public String getName() {
             return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 }

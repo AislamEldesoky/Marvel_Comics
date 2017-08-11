@@ -24,30 +24,27 @@ import java.util.List;
  */
 
 public class ComicDetailFragment extends Fragment {
-    public static final String ARG_POSITION = "position" ;
-    public static final String ARG_COMIC = "comic" ;
-    private String key ;
-    private int position ;
-    private RecyclerView recyclerViewCharacters ;
-    private RecyclerView recyclerViewCreators ;
-    private Comics comic ;
-    private TextView price ;
-    private TextView date ;
-    private TextView title ;
-    List<Comics> comics ;
-    private TextView creators_list ;
-    private TextView characters_list ;
-    private ImageView image ;
-    private TextView description ;
-    private Bundle mBundle ;
-    private ComicDetailCharacterListAdapter comicDetailCharacterListAdapter ;
-    private ComicDetailCreatorListAdapter comicDetailCreatorListAdapter ;
+    public static final String ARG_POSITION = "position";
+    public static final String ARG_COMIC = "comic";
+    private String key;
+    private int position;
+    private RecyclerView recyclerViewCharacters;
+    private RecyclerView recyclerViewCreators;
+    private Comics comic;
+    private TextView price;
+    private TextView date;
+    private TextView title;
+    List<Comics> comics;
+    private TextView creators_list;
+    private TextView characters_list;
+    private ImageView image;
+    private TextView description;
+    private Bundle mBundle;
+    private ComicDetailCharacterListAdapter comicDetailCharacterListAdapter;
+    private ComicDetailCreatorListAdapter comicDetailCreatorListAdapter;
 
-    public ComicDetailFragment(){
+    public ComicDetailFragment() {
     }
-
-
-
 
 
     @Override
@@ -64,23 +61,23 @@ public class ComicDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_comics_detail, container , false) ;
+        View rootView = inflater.inflate(R.layout.fragment_comics_detail, container, false);
 
-        if (mBundle!=null){
-            comic = (Comics) mBundle.getSerializable(ComicDetailFragment.ARG_COMIC) ;
+        if (mBundle != null) {
+            comic = (Comics) mBundle.getSerializable(ComicDetailFragment.ARG_COMIC);
             ((TextView) rootView.findViewById(R.id.Price)).setText(comic.getPrice().get(0).getPrice());
 
             title = (TextView) rootView.findViewById(R.id.title_detail);
             title.setText(comic.getTitle());
 
-            description = (TextView) rootView.findViewById(R.id.comic_description) ;
+            description = (TextView) rootView.findViewById(R.id.comic_description);
             description.setText(comic.getDescription());
-            date = (TextView) rootView.findViewById(R.id.date) ;
+            date = (TextView) rootView.findViewById(R.id.date);
             date.setText(comic.getDates().get(0).getDate());
-            image = (ImageView) rootView.findViewById(R.id.comic_poster) ;
+            image = (ImageView) rootView.findViewById(R.id.comic_poster);
             Glide.with(rootView).load(comic.getImages()
-                    .get(0).getPath()+ "." + comic.getImages().get(0)
-                    .getExtension()).into(image) ;
+                    .get(0).getPath() + "." + comic.getImages().get(0)
+                    .getExtension()).into(image);
             recyclerViewCharacters = (RecyclerView) rootView.findViewById(R.id.characters_list);
             RecyclerView.LayoutManager manager = new LinearLayoutManager(rootView.getContext(),
                     LinearLayoutManager.VERTICAL,
@@ -93,7 +90,7 @@ public class ComicDetailFragment extends Fragment {
             comicDetailCharacterListAdapter = new ComicDetailCharacterListAdapter(comic.getCharacters());
             recyclerViewCharacters.setAdapter(comicDetailCharacterListAdapter);
 
-            recyclerViewCreators = (RecyclerView) rootView.findViewById(R.id.creators_list) ;
+            recyclerViewCreators = (RecyclerView) rootView.findViewById(R.id.creators_list);
             recyclerViewCreators.setLayoutManager(manager2);
 
             comicDetailCreatorListAdapter = new ComicDetailCreatorListAdapter(comic.getCreators());
@@ -101,6 +98,6 @@ public class ComicDetailFragment extends Fragment {
 
         }
 
-        return rootView ;
+        return rootView;
     }
 }

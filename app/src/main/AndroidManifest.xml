@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.islameldesoky.marvelcomics">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -9,18 +10,34 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
 
-        </activity>
+        <activity android:name=".savedcomics.SavedComicsActivity" />
+
         <activity android:name=".Comics.ComicListActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
-        <activity android:name=".Comics.ComicDetailActivity"/>
+        <activity
+            android:name=".Comics.ComicDetailActivity"
+            android:parentActivityName=".Comics.ComicListActivity" />
+        <receiver android:name=".widget.ComicWidgetProvider" >
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name= "android.appwidget.action.APPWIDGET_UPDATE2"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@layout/comic_widget_info" />
+        </receiver>
+        <service android:name=".widget.ComicWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            />
+
     </application>
 
 </manifest>

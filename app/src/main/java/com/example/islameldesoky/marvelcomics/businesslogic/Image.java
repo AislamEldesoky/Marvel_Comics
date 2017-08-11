@@ -25,4 +25,12 @@ public class Image implements Serializable {
     public String getExtension() {
         return extension;
     }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
 }

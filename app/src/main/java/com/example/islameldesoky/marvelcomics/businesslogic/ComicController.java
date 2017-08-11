@@ -1,11 +1,13 @@
 package com.example.islameldesoky.marvelcomics.businesslogic;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.islameldesoky.marvelcomics.Comics.ComicListActivity;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,10 +19,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by islam eldesoky on 08/08/2017.
  */
 
-public class ComicController implements retrofit2.Callback<Result> {
+public class ComicController {
     static final String BASE_URL = "https://gateway.marvel.com/v1/public/";
     List<Comics> comics;
     String apikey = "7600e42cb3ea1a7c5d80726191fe717f";
+    Call<Result> call;
 
     private ComicListActivity comicListActivity;
 
@@ -35,23 +38,34 @@ public class ComicController implements retrofit2.Callback<Result> {
                 .build();
 
         ComicsAPI comicsAPI = retrofit.create(ComicsAPI.class);
-        Call<Result> call = comicsAPI.getComics(apikey);
-        call.enqueue(this);
+        call = comicsAPI.getComics(apikey);
+        new ComicsAsyncTask().execute();
     }
 
-    @Override
-    public void onResponse(Call<Result> call, Response<Result> response ) {
-        if (response.isSuccessful()) {
-            comics = response.body().data.results;
-           comicListActivity.setComics(response.body().data.results);
-            Log.d("CC: response", response.body().data.results.get(0).getTitle());
+    private class ComicsAsyncTask extends AsyncTask<Void, Void, Response<Result>> {
+
+        @Override
+        protected Response<Result> doInBackground(Void... params) {
+            try {
+                return call.execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
         }
-    }
 
-    @Override
-    public void onFailure(Call<Result> call, Throwable t) {
-        Log.e("RC", t.getMessage());
-        Toast.makeText(comicListActivity, t.getMessage(), Toast.LENGTH_LONG).show();
-
+        @Override
+        protected void onPostExecute(Response<Result> response) {
+            if (response.isSuccessful()) {
+                comics = response.body().data.results;
+                comicListActivity.setComics(response.body().data.results);
+                //App.getInstance().setComics(response.body().data.results);
+                Log.d("CC: response", response.body().data.results.get(0).getTitle());
+            } else {
+                Log.e("RC", response.message());
+                Toast.makeText(comicListActivity, response.message(), Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
