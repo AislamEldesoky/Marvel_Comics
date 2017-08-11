@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.transition.Slide;
+import android.transition.Explode;
 import android.transition.TransitionInflater;
 
 import com.example.islameldesoky.marvelcomics.Comics.adapter.ComicListAdapter;
@@ -45,8 +45,8 @@ public class ComicListActivity extends AppCompatActivity {
     }
 
     private void setupWindowAnimations() {
-        Slide slide = (Slide) TransitionInflater.from(this).inflateTransition(R.transition.activity_slide);
-        getWindow().setExitTransition(slide);
+       Explode explode = (Explode) TransitionInflater.from(this).inflateTransition(R.transition.activity_explode);
+        getWindow().setExitTransition(explode);
 
     }
 
