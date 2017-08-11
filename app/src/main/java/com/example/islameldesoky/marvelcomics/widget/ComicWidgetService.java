@@ -24,15 +24,11 @@ public class ComicWidgetService extends RemoteViewsService {
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
 
-        return new RecipeWidgetListFactory(this.getApplicationContext(), intent);
+        return new ComicWidgetListFactory(this.getApplicationContext(), intent);
     }
 
 
-    /**
-     * Created by islam eldesoky on 17/07/2017.
-     */
-
-    public class RecipeWidgetListFactory implements RemoteViewsService.RemoteViewsFactory {
+    public class ComicWidgetListFactory implements RemoteViewsService.RemoteViewsFactory {
         Context mContext;
         Comics comic ;
         List<Comics> comics ;
@@ -40,7 +36,7 @@ public class ComicWidgetService extends RemoteViewsService {
         int size;
 
 
-        RecipeWidgetListFactory(Context applicationContext, Intent intent) {
+        ComicWidgetListFactory(Context applicationContext, Intent intent) {
             this.mContext = applicationContext;
 
         }
