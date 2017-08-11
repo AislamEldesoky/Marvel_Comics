@@ -1,23 +1,9 @@
 package com.example.islameldesoky.marvelcomics.widget;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.RemoteViews;
-import android.widget.RemoteViewsService;
-
-import com.example.islameldesoky.marvelcomics.Comics.ComicDetailFragment;
-import com.example.islameldesoky.marvelcomics.Comics.ComicListActivity;
-import com.example.islameldesoky.marvelcomics.R;
-import com.example.islameldesoky.marvelcomics.businesslogic.Comics;
-
-import java.util.List;
-
 /**
  * Created by islam eldesoky on 10/08/2017.
  */
-
+/*
 public class ComicWidgetService extends RemoteViewsService {
 
 
@@ -64,7 +50,6 @@ public class ComicWidgetService extends RemoteViewsService {
         @Override
         public RemoteViews getViewAt(int position) {
 
-            activitys.setComics(comics);
             RemoteViews views = new RemoteViews(mContext.getPackageName(), R.layout.comic_widget_layout);
 
             if (position < comics.size()) {
@@ -108,3 +93,4 @@ public class ComicWidgetService extends RemoteViewsService {
         }
     }
 }
+*/

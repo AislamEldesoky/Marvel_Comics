@@ -39,11 +39,11 @@ public class ComicWidgetProvider extends AppWidgetProvider {
 
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.comic_widget_list);
-        Intent intent = new Intent(context, ComicWidgetService.class);
+       /* Intent intent = new Intent(context, ComicWidgetService.class);
         views.setRemoteAdapter(
                 R.id.widget_list_view,
                 intent);
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);*/
 
         final Intent OnItemClickintent = new Intent(context, SavedComicsActivity.class);
         OnItemClickintent.setAction(ACTION_TOAST);
