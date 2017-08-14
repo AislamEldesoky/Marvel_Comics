@@ -1,9 +1,24 @@
 package com.example.islameldesoky.marvelcomics.widget;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.RemoteViews;
+import android.widget.RemoteViewsService;
+
+import com.example.islameldesoky.marvelcomics.Comics.ComicListActivity;
+import com.example.islameldesoky.marvelcomics.R;
+import com.example.islameldesoky.marvelcomics.businesslogic.Comics;
+import com.example.islameldesoky.marvelcomics.savedcomics.SavedComicsActivity;
+import com.example.islameldesoky.marvelcomics.utils.App;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by islam eldesoky on 10/08/2017.
  */
-/*
+
 public class ComicWidgetService extends RemoteViewsService {
 
 
@@ -16,8 +31,8 @@ public class ComicWidgetService extends RemoteViewsService {
 
     public class ComicWidgetListFactory implements RemoteViewsService.RemoteViewsFactory {
         Context mContext;
-        Comics comic ;
-        List<Comics> comics ;
+        Comics comic;
+        List<Comics> comics;
         ComicListActivity activitys;
         int size;
 
@@ -25,6 +40,11 @@ public class ComicWidgetService extends RemoteViewsService {
         ComicWidgetListFactory(Context applicationContext, Intent intent) {
             this.mContext = applicationContext;
 
+            if (App.getInstance().getComics() == null) {
+                comics = new ArrayList<>();
+            } else {
+                comics = App.getInstance().getComics();
+            }
         }
 
         @Override
@@ -34,7 +54,11 @@ public class ComicWidgetService extends RemoteViewsService {
 
         @Override
         public void onDataSetChanged() {
-
+            if (App.getInstance().getComics() == null) {
+                comics = new ArrayList<>();
+            } else {
+                comics = App.getInstance().getComics();
+            }
         }
 
         @Override
@@ -44,33 +68,30 @@ public class ComicWidgetService extends RemoteViewsService {
 
         @Override
         public int getCount() {
-            return comics.size();
+            return comics == null ? 0 : comics.size();
         }
 
         @Override
         public RemoteViews getViewAt(int position) {
 
+            comics = App.getInstance().getComics();
+            comic = comics.get(position) ;
             RemoteViews views = new RemoteViews(mContext.getPackageName(), R.layout.comic_widget_layout);
 
-            if (position < comics.size()) {
-                views.setTextViewText(R.id.comic_widget_title, comics.get(position).getTitle());
+            views.setTextViewText(R.id.comic_widget_title, comic.getTitle());
 
 
-                Intent fillInIntent = new Intent();
-                fillInIntent.setAction(ComicWidgetProvider.ACTION_TOAST);
-                Bundle extras = new Bundle();
-                extras.putString(ComicDetailFragment.ARG_COMIC, comics.get(position).getTitle());
+            Intent fillInIntent = new Intent();
+            fillInIntent.setAction(ComicWidgetProvider.ACTION_TOAST);
+            Bundle extras = new Bundle();
+            extras.putString(SavedComicsActivity.ARG_COMIC, comic.getTitle());
 
-                fillInIntent.putExtras(extras);
-                views.setOnClickFillInIntent(R.id.comic_widget_title, fillInIntent);
+            fillInIntent.putExtras(extras);
+            views.setOnClickFillInIntent(R.id.comic_widget_title, fillInIntent);
+            return views;
 
-                return views;
-            } else {
-                RemoteViews views1 = new RemoteViews(mContext.getPackageName(), R.layout.comic_widget_layout);
-                views1.setViewVisibility(R.id.llrootview, View.GONE);
-                return views1;
-            }
         }
+
 
         @Override
         public RemoteViews getLoadingView() {
@@ -93,4 +114,3 @@ public class ComicWidgetService extends RemoteViewsService {
         }
     }
 }
-*/

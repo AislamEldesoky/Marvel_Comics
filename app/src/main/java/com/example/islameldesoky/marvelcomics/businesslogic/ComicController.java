@@ -24,6 +24,7 @@ public class ComicController {
     List<Comics> comics;
     String apikey = "7600e42cb3ea1a7c5d80726191fe717f";
     Call<Result> call;
+    Result result ;
 
     private ComicListActivity comicListActivity;
 
@@ -59,9 +60,8 @@ public class ComicController {
         protected void onPostExecute(Response<Result> response) {
             if (response.isSuccessful()) {
                 comics = response.body().data.results;
+                Log.d("CC", response.body().toString());
                 comicListActivity.setComics(response.body().data.results);
-                //App.getInstance().setComics(response.body().data.results);
-                Log.d("CC: response", response.body().data.results.get(0).getTitle());
             } else {
                 Log.e("RC", response.message());
                 Toast.makeText(comicListActivity, response.message(), Toast.LENGTH_LONG).show();

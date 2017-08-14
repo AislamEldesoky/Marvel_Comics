@@ -1,6 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'marvelkey'
+            keyPassword '0543478324'
+            storeFile file('D:/AndroidProjects/MarvelComics/keystores/marvelkeystore.jks')
+            storePassword '0543478324'
+        }
+        config1 {
+        }
+    }
     compileSdkVersion 25
     buildToolsVersion "26.0.0"
     defaultConfig {
@@ -15,12 +25,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -28,7 +39,6 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
-
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
@@ -37,7 +47,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:11.0.4'
     compile 'com.orhanobut:hawk:2.0.1'
     compile 'com.google.firebase:firebase-database:11.0.4'
-
 }
 
 apply plugin: 'com.google.gms.google-services'

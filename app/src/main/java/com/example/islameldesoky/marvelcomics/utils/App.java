@@ -12,8 +12,9 @@ import java.util.List;
  */
 
 public class App extends Application {
+    private static App instance;
+
     public static final String ARG_COMICS = "comics";
-    private static App instance ;
 
     public App() {
         instance = this;
@@ -31,5 +32,9 @@ public class App extends Application {
 
     public void setComics(List<Comics> comics) {
         Hawk.put(ARG_COMICS, comics);
+    }
+
+    public List<Comics> getComics() {
+        return Hawk.get(ARG_COMICS);
     }
 }

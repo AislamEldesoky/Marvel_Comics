@@ -39,11 +39,11 @@ public class ComicWidgetProvider extends AppWidgetProvider {
 
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.comic_widget_list);
-       /* Intent intent = new Intent(context, ComicWidgetService.class);
-        views.setRemoteAdapter(
+        Intent intent = new Intent(context, ComicWidgetService.class);
+       views.setRemoteAdapter(
                 R.id.widget_list_view,
                 intent);
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);*/
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
 
         final Intent OnItemClickintent = new Intent(context, SavedComicsActivity.class);
         OnItemClickintent.setAction(ACTION_TOAST);
@@ -56,10 +56,6 @@ public class ComicWidgetProvider extends AppWidgetProvider {
 
     }
 
-    public static void updateIngredientWidgets(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-
-
-    }
 
 
     @Override

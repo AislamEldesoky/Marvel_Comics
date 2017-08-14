@@ -37,6 +37,8 @@ public class SavedComicsAdapter extends RecyclerView.Adapter<SavedComicsAdapter.
                 + "." + comics.get(holder.getAdapterPosition()).getImages().get(0).getExtension())
                 .into(holder.image);
         holder.title.setText(comics.get(position).getTitle());
+
+
     }
 
     @Override

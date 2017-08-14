@@ -8,6 +8,10 @@ import java.util.List;
 
 public class Data implements Serializable {
 
+    public List<Comics> getResults() {
+        return results;
+    }
+
     @SerializedName("results")
     @Expose
     public List<Comics> results;

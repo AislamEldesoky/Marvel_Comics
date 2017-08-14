@@ -7,6 +7,10 @@ import java.io.Serializable;
 
 public class Result implements Serializable {
 
+    public Data getData() {
+        return data;
+    }
+
     @SerializedName("data")
     @Expose
     public Data data;
