@@ -5,10 +5,8 @@ android {
         config {
             keyAlias 'marvelkey'
             keyPassword '0543478324'
-            storeFile file('D:/AndroidProjects/MarvelComics/keystores/marvelkeystore.jks')
+            storeFile file("$rootDir/keystores/marvelkeystore.jks")
             storePassword '0543478324'
-        }
-        config1 {
         }
     }
     compileSdkVersion 25
@@ -20,6 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
@@ -27,6 +26,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
         }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
     }
 }
 
